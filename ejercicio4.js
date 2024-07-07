@@ -26,9 +26,6 @@ for (let movie in cartoons) {
 
 console.log("La película más antigua es " + oldestMovie[0].name + ", que se estrenó el año " + oldestMovie[0].debut);
 
-
-
-
 // Otra manera más directa
 // cartoons.sort((a, b) => {
 //   if (a.debut < b.debut) {
