@@ -14,14 +14,29 @@ const cartoons = [
   { name: "Dexter's Laboratory", debut: 1996 }
 ];
 
-cartoons.sort((a, b) => {
-  if (a.debut < b.debut) {
-    return -1;
-  }
-  if (a.debut > b.debut) {
-    return 1;
-  }
-  return 0;
-});
+const oldestMovie = [];
+let CurrentYear = new Date().getFullYear();
 
-console.log("La película más antigua es " + cartoons[0].name + ", que se estrenó el año " + cartoons[0].debut);
+for (let movie in cartoons) {
+  if (cartoons[movie].debut < CurrentYear ) {
+    oldestMovie.splice(0, 1, cartoons[movie]);
+    CurrentYear = cartoons[movie].debut;
+  }
+}
+
+console.log("La película más antigua es " + oldestMovie[0].name + ", que se estrenó el año " + oldestMovie[0].debut);
+
+
+
+
+// Otra manera más directa
+// cartoons.sort((a, b) => {
+//   if (a.debut < b.debut) {
+//     return -1;
+//   }
+//   if (a.debut > b.debut) {
+//     return 1;
+//   }
+//   return 0;
+// });
+//console.log("La película más antigua es " + cartoons[0].name + ", que se estrenó el año " + cartoons[0].debut);
