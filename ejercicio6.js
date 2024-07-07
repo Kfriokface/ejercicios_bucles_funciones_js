@@ -16,16 +16,14 @@ const starWarsMovies = [
   { title: 'Solo', releaseYear: 2018 }
 ];
 
-let moviesByDecades = [];
+const moviesByDecades = {};
 
-//Este lo hago como lo haría en PHP
-starWarsMovies.forEach((value, i) => {
+starWarsMovies.forEach((value) => {
   const decade = Math.floor(value.releaseYear / 10) * 10;
-  moviesByDecades[i] = {
-    'decade': decade,
-    'title': value.title
-  };
-});
+  if (!moviesByDecades[decade]) {
+    moviesByDecades[decade] = [];
+  }
+  moviesByDecades[decade].push(value.title);
+})
 
-
-console.table(moviesByDecades);
+console.log(moviesByDecades);
